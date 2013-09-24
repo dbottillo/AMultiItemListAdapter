@@ -104,7 +104,6 @@ public class MultiItemListAdapter implements WrapperListAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-
         LinearLayout linearLayout;
 
         if (convertView == null){
@@ -119,9 +118,6 @@ public class MultiItemListAdapter implements WrapperListAdapter {
             linearLayout = (LinearLayout) convertView;
         }
 
-        //if (position % 2 == 0) linearLayout.setBackgroundColor(mContextReference.get().getResources().getColor(android.R.color.black));
-        //else linearLayout.setBackgroundColor(mContextReference.get().getResources().getColor(android.R.color.holo_red_dark));
-
         for (int i=0; i< numberOfColumns; i++){
             View newView;
 
@@ -134,27 +130,22 @@ public class MultiItemListAdapter implements WrapperListAdapter {
 
             if (oldView != null) linearLayout.removeView(oldView);
 
-            //STM.LogMessage("position "+position+" of total "+getCount());
             if (adapterPosition < originalAdapter.getCount()){
                 if (oldView instanceof FakeView){
                     oldView = null;
                 }
                 newView = originalAdapter.getView(adapterPosition, oldView, linearLayout);
-                newView.setLayoutParams(singleElementLayoutParams);
-                //STM.LogMessage("i'm adding element at index"+i);
-                linearLayout.addView(newView, i);
             }else{
-                FakeView fakeView = new FakeView(context);
-                //fakeView.setBackgroundColor(mContextReference.get().getResources().getColor(android.R.color.holo_red_dark));
-                fakeView.setLayoutParams(singleElementLayoutParams);
-                //STM.LogMessage("i'm adding fake at index "+i);
-                linearLayout.addView(fakeView, i);
+                newView = new FakeView(context);
             }
+
+            newView.setLayoutParams(singleElementLayoutParams);
+            linearLayout.addView(newView, i);
         }
         return linearLayout;
     }
 
-    private static class FakeView extends View {
+    protected static class FakeView extends View {
         public FakeView(Context context) {
             super(context);
         }
