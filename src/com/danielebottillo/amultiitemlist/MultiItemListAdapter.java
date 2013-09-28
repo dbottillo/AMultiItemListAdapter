@@ -29,6 +29,7 @@ public class MultiItemListAdapter implements WrapperListAdapter {
         this.numberOfColumns = numberOfColumns;
         this.cellSpacing = cellSpacing;
 
+        // LayoutParams for the container layout, this view will contain the element of the original adapter
         singleElementLayoutParams = new LayoutParams(0, LayoutParams.MATCH_PARENT);
         singleElementLayoutParams.setMargins(cellSpacing, cellSpacing, 0, 0);
         singleElementLayoutParams.weight = 1;
@@ -87,6 +88,7 @@ public class MultiItemListAdapter implements WrapperListAdapter {
 
     @Override
     public Object getItem(int position) {
+        // getItem return the array of element to display in every single row
         List<Object> items = new ArrayList<Object>(numberOfColumns);
         for (int i = 0; i < numberOfColumns; i++) {
             int p = position * numberOfColumns + i;
