@@ -25,7 +25,7 @@ res/values/integers.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="items_per_row">1</integer>
+    <integer name="number_of_columns">1</integer>
 </resources>
 ```
 
@@ -34,7 +34,7 @@ res/values-land/integers.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="items_per_row">2</integer>
+    <integer name="number_of_columns">2</integer>
 </resources>
 ```
 
