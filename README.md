@@ -47,7 +47,8 @@ int numberOfColumns = getResources().getInteger(R.integer.number_of_columns);
 MultiItemListSectionAdapter multiItemListSectionAdapter = new MultiItemListSectionAdapter(this, numberOfColumns, cellSpacing);
 MultiItemListHeader firstHeader = new MultiItemListHeader(0, firstViewHeader);
 multiItemListSectionAdapter.addSection(firstHeader, firstAdapter);
-multiItemListSectionAdapter.addSection(secondHeader, secondAdapter);        list.setAdapter(multiItemListSectionAdapter);
+multiItemListSectionAdapter.addSection(secondHeader, secondAdapter);
+list.setAdapter(multiItemListSectionAdapter);
 ```
 In this case you have to create a MultiItemListHeader for each section, this class takes two parameters: an index and the View that will use inside the list. Then for each section you have to add an header and the adapter for the elements.
 
