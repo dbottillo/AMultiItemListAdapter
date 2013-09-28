@@ -1,7 +1,7 @@
 A Multi Item List Adapter
 ===========
 
-__AMultiItemListAdapter__ is an adapter for your ListView that  allows you to create ListView with multiple items on a row based on your current adapter. Furthermore, you can also have the same funcionality using sections.
+__AMultiItemListAdapter__ is an adapter for ListView that allows you to have multiple items on a row based on your current adapter. Furthermore, you can also have the same functionality using sections.
 
 [![Phone example](http://danielebottillo.com/github/multilistitem_phone.jpg)](http://danielebottillo.com/github/multilistitem_phone.jpg)
 
@@ -17,7 +17,9 @@ MultiItemListAdapter multiItemListAdapter = new MultiItemListAdapter(this, curre
 list.setAdapter(multiItemListAdapter);
 ```
 
-The constructor of MultiItemListAdapter takes four parameters: the current Context, the current adapter, the number of columns and the cell spacing. The currentAdapter is the original adapter of the list. If you specify the number of columns and the cell spacing inside and xml you can have your listview change based on the size of screen:
+
+The constructor of MultiItemListAdapter takes four parameters: the current Context, the current adapter, the number of columns and the space between cells in pixels. The currentAdapter is the original adapter of the list. If you specify the number of columns and the cell spacing inside an xml you can have your listview changing based on the size of screen and orientation:
+
 res/values/integers.xml
 
 ```xml
@@ -37,7 +39,7 @@ res/values-land/integers.xml
 ```
 
 
-If you want to use the section version of AMultiItemListAdapter the behaviour is slighty different:
+If you want to use the section version of AMultiItemListAdapter the behaviour is slightly different:
 
 ```java
 int cellSpacing = (int)getResources().getDimension(R.dimen.cell_spacing);
@@ -47,7 +49,7 @@ MultiItemListHeader firstHeader = new MultiItemListHeader(0, firstViewHeader);
 multiItemListSectionAdapter.addSection(firstHeader, firstAdapter);
 multiItemListSectionAdapter.addSection(secondHeader, secondAdapter);        list.setAdapter(multiItemListSectionAdapter);
 ```
-In this case you have to create a MultiItemListHeader for each section that takes two parameters: an index and the view that will use inside the list. Then for each section you have to add an header and the adapter for the elements.
+In this case you have to create a MultiItemListHeader for each section, this class takes two parameters: an index and the View that will use inside the list. Then for each section you have to add an header and the adapter for the elements.
 
 ## Supported Version
 
