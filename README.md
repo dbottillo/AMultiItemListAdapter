@@ -5,7 +5,8 @@ __AMultiItemListAdapter__ is an adapter for ListView that allows you to have mul
 
 ![Phone example](screenshots/multilistitem_phone.jpg)
 
-![Tablet example](screenshots/multilistitem_tablet.jpg)]
+![Tablet example](screenshots/multilistitem_tablet.jpg)
+
 
 ## Usage
 
